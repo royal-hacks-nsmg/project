@@ -1,4 +1,6 @@
-﻿namespace datamodel;
+﻿namespace gameEngine;
+
+using datamodel;
 
 public class GameState(Player player, Npc npc, IUI UI)
 {
@@ -17,10 +19,10 @@ public class GameState(Player player, Npc npc, IUI UI)
             }
 
             (ActionType type, string? userText) = UI.PerformUserAction();
-            Console.WriteLine($"Player attacks Npc for {Player.Attack} damage");
             switch (type)
             {
                 case ActionType.ATTACK:
+                    Console.WriteLine($"Player attacks Npc for {Player.Attack} damage");
                     Npc.HP -= Player.Attack;
                     if (Npc.HP <= 0)
                     {

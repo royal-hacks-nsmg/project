@@ -1,3 +1,7 @@
-﻿using gemini_wrapper;
+﻿using gameEngine;
+using tui;
 
-await GenerateContentSimpleText.main();
+var ui = new UI();
+var eb = new EncounterBuilder();
+var gameState = eb.makeEncounter("", ui);
+gameState.Run();

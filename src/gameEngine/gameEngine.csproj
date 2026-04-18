@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\gemini-wrapper\gemini-wrapper.csproj" />
+    <ProjectReference Include="..\datamodel\datamodel.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

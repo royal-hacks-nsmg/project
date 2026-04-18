@@ -16,7 +16,8 @@ public class UI : IUI
                 case ConsoleKey.D1:
                     return (ActionType.ATTACK, null);
                 case ConsoleKey.D2:
-                    return (ActionType.TALK, "");
+                    var text = Console.ReadLine();
+                    return (ActionType.TALK, text);
                 default:
                     Console.WriteLine("Type a valid number");
                     break;

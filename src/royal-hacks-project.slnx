@@ -1,6 +1,7 @@
 <Solution>
   <Project Path="cli/cli.csproj" />
   <Project Path="datamodel/datamodel.csproj" />
+  <Project Path="gameEngine/gameEngine.csproj" />
   <Project Path="gemini-wrapper/gemini-wrapper.csproj" />
   <Project Path="tui/tui.csproj" />
 </Solution>
