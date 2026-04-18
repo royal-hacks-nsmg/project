@@ -1,6 +1,6 @@
 ﻿namespace datamodel;
 
-public class GameState(Player player, Npc npc)
+public class GameState(Player player, Npc npc, IUI UI)
 {
     public Npc Npc = npc;
     public Player Player = player;
@@ -16,10 +16,8 @@ public class GameState(Player player, Npc npc)
                 break;
             }
 
-            //(ActionType type, string? userText) = UI.PerformPlayerTurn();
+            (ActionType type, string? userText) = UI.PerformUserAction();
             Console.WriteLine($"Player attacks Npc for {Player.Attack} damage");
-            ActionType type = ActionType.ATTACK;
-            string? userText = null;
             switch (type)
             {
                 case ActionType.ATTACK:

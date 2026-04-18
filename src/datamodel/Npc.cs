@@ -33,10 +33,6 @@ public class Npc(int initialHP) : PlayerAbstract(initialHP)
         Console.WriteLine($"Npc attacks player for {chosenAction.HPNominalChange} damage with {chosenAction.Description}");
         EmotionState = EmotionState.ANGRY;
         // Update UI with emotion and Npc reponse
-        Console.WriteLine($"Emotion: {EmotionState}\nNPC: Grrrr");
-
-        var json = JsonSerializer.Serialize(chosenAction);
-        System.Console.WriteLine(json);
+        Console.WriteLine($"Npc emotion: {EmotionState}\nNPC: Grrrr");
     }
-
 }
