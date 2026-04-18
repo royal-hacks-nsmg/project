@@ -9,15 +9,23 @@ public class Npc(int initialHP) : PlayerAbstract(initialHP)
     {
         return "I am dead :(";
     }
-    public List<NpcAction> npcActions = [
-        new NpcAction(0, "Anger smash", [EmotionState.ANGRY], Players.PLAYER, 10),
-    ];
+    public List<NpcAction> npcActions = [];
     public void PerformTurn(GameState state, ActionType playerAction, string? userText = null)
-    {
+    {   
         // Create list of NpcActions whose preconditions are true
+        List<NpcAction> validList = [];
+        foreach(NpcAction a in npcActions)
+        {
+            if(a.Precondition.Contains(state.Npc.EmotionState))
+            {
+                validList.Add(a);
+            }
+        }
         // Send prompt to Gemini
         // Check if chosen NpcAction is valid
-        var chosenActionId = 0;
+        Random rnd = new Random(); 
+
+        var chosenActionId = rnd.Next(validList.Count()); // replace with AI prompt 
         // If not resend and check again
         // If so then perform action and change emotion
         var chosenAction = npcActions.ElementAt(chosenActionId);
