@@ -79,7 +79,10 @@ public class UI : IUI
             DrawDialogueHistory();
 
             // Draw the current message in the box
-            Color msgColor = message.Contains("GAME OVER") ? Color.Red : Color.White;
+            Color msgColor = Color.White;
+            if (message.Contains("GAME OVER")) msgColor = Color.Red;
+            else if (message.Contains("COMBAT ENDED")) msgColor = Color.Gold;
+            
             DrawWrappedText(message, 80, 280, 1100, 30, msgColor);
 
             DrawStats();

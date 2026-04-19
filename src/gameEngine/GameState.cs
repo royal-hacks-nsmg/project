@@ -17,7 +17,7 @@ public class GameState(Player player, Npc npc, IUI UI)
         {
             if (Player.HP <= 0)
             {
-                UI.DisplayMessage("GAME OVER - YOU DIED\n\n(The world fades to black as you succumb to your wounds...)");
+                UI.DisplayMessage("GAME OVER - YOU DIED\n\n(The world fades to black as you succumb to your wounds...)\n\nPress ENTER or click to close the application.");
                 break;
             }
 
@@ -32,7 +32,7 @@ public class GameState(Player player, Npc npc, IUI UI)
                     {
                         UI.DisplayMessage(Npc.PerformDeathScenario());
                         stop = true;
-                        UI.DisplayMessage("Player killed Npc! YOU WIN!");
+                        UI.DisplayMessage("COMBAT ENDED\n\nThe enemy has been defeated. Press ENTER or click to close the application.");
                     }
                     else
                     {

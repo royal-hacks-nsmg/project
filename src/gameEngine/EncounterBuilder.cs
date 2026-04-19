@@ -47,6 +47,11 @@ public class EncounterBuilder
         }
         TheGuy.npcActions.Add(actions[9]);
         TheGuy.npcActionsFull = actions;
+        TheGuy.npcActions.Add(actions[7]);
+        TheGuy.npcActionsFull = actions;
+        TheGuy.npcActions.Add(actions[18]);
+        TheGuy.npcActionsFull = actions;
+
 
         return new GameState(player, TheGuy, UI);
     }
