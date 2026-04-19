@@ -1,4 +1,4 @@
-﻿namespace gameEngine;
+namespace gameEngine;
 
 using datamodel;
 
@@ -6,15 +6,18 @@ public class GameState(Player player, Npc npc, IUI UI)
 {
     public Npc Npc = npc;
     public Player Player = player;
+    public IUI UI { get; } = UI;
 
     public void Run()
     {
         bool stop = false;
+        UI.UpdateStats(Player.HP, Npc.HP);
+
         while (!stop)
         {
             if (Player.HP <= 0)
             {
-                Console.WriteLine("Npc killed player");
+                UI.DisplayMessage("GAME OVER - YOU DIED\n\n(The world fades to black as you succumb to your wounds...)");
                 break;
             }
 
@@ -22,13 +25,14 @@ public class GameState(Player player, Npc npc, IUI UI)
             switch (type)
             {
                 case ActionType.ATTACK:
-                    Console.WriteLine($"Player attacks Npc for {Player.Attack} damage");
+                    UI.DisplayMessage($"Player attacks Npc for {Player.Attack} damage");
                     Npc.HP -= Player.Attack;
+                    UI.UpdateStats(Player.HP, Npc.HP);
                     if (Npc.HP <= 0)
                     {
-                        Npc.PerformDeathScenario();
+                        UI.DisplayMessage(Npc.PerformDeathScenario());
                         stop = true;
-                        Console.WriteLine("Player killed Npc");
+                        UI.DisplayMessage("Player killed Npc! YOU WIN!");
                     }
                     else
                     {
@@ -43,7 +47,7 @@ public class GameState(Player player, Npc npc, IUI UI)
                     Npc.PerformTurn(this, type, userText);
                     break;
             }
-            Console.WriteLine($"Round end. Player health: {Player.HP}. Npc health: {Npc.HP}");
+            UI.DisplayMessage($"Round end. Player health: {Player.HP}. Npc health: {Npc.HP}");
         }
     }
 }

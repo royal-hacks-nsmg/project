@@ -13,7 +13,7 @@ Select the most appropriate Emotional State from this list: [ NEUTRAL, ANGRY, HA
 
 Write a brief in-character dialogue response (max 15 words).
 
-Explain why the state changed based on the character's backstory.
+Explain why the state changed based on the character's backstory (max 20 words).
 
 OUTPUT ONLY VALID JSON. DO NOT INCLUDE MARKDOWN BLOCKS.
 

@@ -7,7 +7,7 @@ public class EncounterBuilder
 {
     public GameState makeEncounter(String fileName, IUI UI)
     {
-        string filename = "gameEngine/NPCActions.json";
+        string filename = "src/gameEngine/NPCActions.json";
         string jsonstring = File.ReadAllText(filename);
         List<NpcAction> actions = JsonSerializer.Deserialize<List<NpcAction>>(jsonstring);
 

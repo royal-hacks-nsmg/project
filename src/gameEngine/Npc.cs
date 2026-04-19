@@ -41,7 +41,10 @@ public class Npc(int initialHP) : PlayerAbstract(initialHP)
         geminiText += $"You can choose one, and only one, of these actions:\n{json}.\nPut the id of the chosen action as the Action value of your JSON response as an integer\n";
 
         // Send prompt to Gemini
-        var response = generateContentSimpleText.GenerateContentResponse(geminiText);
+        EnemyResponseSchema? response = null;
+        state.UI.ShowLoading(() => {
+            response = generateContentSimpleText.GenerateContentResponse(geminiText);
+        });
         // Check if chosen NpcAction is valid
 
 
@@ -57,8 +60,6 @@ public class Npc(int initialHP) : PlayerAbstract(initialHP)
                 HP += chosenAction.HPNominalChange;
                 break;
         }
-        Console.WriteLine($"Npc attacks player for {chosenAction.HPNominalChange} damage with {chosenAction.Description}");
-
 
         var emotionStateStr = response.EmotionalState;
         switch (emotionStateStr!)
@@ -77,7 +78,12 @@ public class Npc(int initialHP) : PlayerAbstract(initialHP)
                 break;
         }
 
-        // Update UI with emotion and Npc reponse
-        Console.WriteLine($"NPC: {response.Dialogue}\n{response.Reasoning}");
+        state.UI.UpdateStats(state.Player.HP, HP);
+
+        // Send dialogue first (it will be drawn alongside the next blocking message)
+        state.UI.DisplayMessage($"NPC: \"{response.Dialogue}\"\n{response.Reasoning}");
+
+        // Send attack description (this will block and show everything together)
+        state.UI.DisplayMessage($"Npc attacks player for {chosenAction.HPNominalChange} damage with {chosenAction.Description}");
     }
 }

@@ -25,4 +25,19 @@ public class UI : IUI
         }
     }
 
+    public void DisplayMessage(string message)
+    {
+        Console.WriteLine(message);
+    }
+
+    public void ShowLoading(Action action)
+    {
+        Console.WriteLine("Waiting for response...");
+        action();
+    }
+
+    public void UpdateStats(int playerHp, int npcHp)
+    {
+        // TUI doesn't need to do anything special here as it's printed in GameState
+    }
 }

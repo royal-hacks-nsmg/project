@@ -10,10 +10,12 @@
   <ItemGroup>
     <ProjectReference Include="..\gameEngine\gameEngine.csproj" />
     <ProjectReference Include="..\tui\tui.csproj" />
+    <ProjectReference Include="..\gui\gui.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="DotNetEnv" Version="3.1.1" />
+    <PackageReference Include="Raylib-cs" Version="7.0.2" />
   </ItemGroup>
 
 </Project>
