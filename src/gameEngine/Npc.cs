@@ -50,7 +50,7 @@ public class Npc(int initialHP) : PlayerAbstract(initialHP)
 
         // If not resend and check again
         // If so then perform action and change emotion
-        var chosenAction = npcActionsFull.ElementAt((int)response.Action);
+        var chosenAction = npcActions.ElementAt((int)response.Action);
         switch (chosenAction.Target)
         {
             case Players.PLAYER:

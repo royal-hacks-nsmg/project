@@ -1,0 +1,12 @@
+{
+    "EnemyHP":50,
+    "Personality":"You are a tough bandit who is prone to anger issues and desires riches. Despite that you love to laugh and find dark humor hilarious. You recently lost your dauther due the the bubonic plague",
+    "PlayerHP": 50,
+    "PlayerAttack":5,
+    "EnemyActions":[{"Id":0,"Description":"Anger smash","Precondition":[1],"Target":0,"HPNominalChange":10},
+    {"Id":1,"Description":"Ordinary Weapon Attack","Precondition":[0,1,2,3],"Target":0,"HPNominalChange":7},
+    {"Id":2,"Description":"End Battle Peacefully","Precondition":[0,1,2,3],"Target":1,"HPNominalChange":-9999},
+    {"Id":3,"Description":"Anger's Peak; the Strike to end all things in a blaze of fury mk.II Final (5).rar","Precondition":[1],"Target":0,"HPNominalChange":70},
+    {"Id":4,"Description":"Grieving Sword","Precondition":[3],"Target":0,"HPNominalChange":15},
+    {"Id":5,"Description":"Pass Turn","Precondition":[3],"Target":0,"HPNominalChange":0}]
+}
